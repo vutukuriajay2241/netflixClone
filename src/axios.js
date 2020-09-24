@@ -4,7 +4,7 @@ const instance= axios.create({
     baseURL: "https://api.themoviedb.org/3",
 })
 const local= axios.create({
-    baseURL: "http://127.0.0.1:5000/",
+    baseURL: "https://netflix-clone-api.herokuapp.com/",
     withCredentials: false,
     headers: {
       'Access-Control-Allow-Origin' : '*',
