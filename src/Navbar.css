@@ -8,6 +8,42 @@
     object-fit: contain;
     margin-right: 20px;   
 }
+.searchContainer{
+    display: flex;
+    align-items: center;
+    padding-right: 10px;
+    
+}
+.navOptionsContainer{
+    display: flex;
+    align-items: center;
+
+}
+.searchBox{
+    height: 24px;
+    padding-left: 30px;
+    background-color: #000000bf;
+    border-style: solid;
+    box-shadow: none;
+    border-color: white;
+    border-width: 1px;
+    color: white;
+}
+.search{
+    width: 22px;
+    object-fit: contain;
+    position: absolute;
+    padding: 3px;
+    cursor: pointer;
+    /* margin-right: 20px;    */
+}
+.searchOnly{
+    width: 22px;
+    object-fit: contain;
+    padding-right: 10px;
+    cursor: pointer;
+
+}
 .navbar{
     position: fixed;
     padding: 0px 5px;

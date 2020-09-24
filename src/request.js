@@ -9,7 +9,8 @@ const requests= {
     fetechRomanceMovies:  `/discover/movie?api_key=${api_key}&with_genres=10749`,
     fetechDocumentries:  `/discover/movie?api_key=${api_key}&with_genres=99`,
     fetchtopRated: `/movie/top_rated?api_key=${api_key}&language=en-US`,
-
+    movieTitle: `/search/movie?api_key=${api_key}&query=`,
+    movieDetails:`/movie`
 }
 
 export default requests;

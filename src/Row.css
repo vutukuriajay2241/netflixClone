@@ -10,6 +10,14 @@
     margin-right: 10px;
    
 }
+.poster_container{
+    position: relative;
+}
+.poster_name{
+    position: absolute;
+    font-size: 10px;
+    bottom: 0;
+}
 .row_poster_large{
     max-height: 250px;
 }

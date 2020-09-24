@@ -1,0 +1,52 @@
+.poster_movie{
+    object-fit: contain;
+    /* width: 100%; */
+    height: 215px;
+    display: flex;
+}
+.backgroundContainer{
+    position: relative;
+}
+.details_container{
+    padding: 20px;
+    color: white;
+
+}
+.movie_title{
+    font-size: 30px;
+}
+.close{
+    object-fit: contain;
+    height: 30px;
+    padding: 25px;
+    position: absolute;
+    right: 0;
+}.movie_button{
+    cursor: pointer;
+    color: #ffffff;
+    outline: none;
+    border: none;
+    font-weight: 700;
+    border-radius: 0.2vw;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin-right: 1rem;
+    padding-top: 0.5rem;
+    background-color: rgba(51, 51, 51, 0.5);
+    padding-bottom: 0.5rem;
+    max-width: 300px;
+    /* width: 40%; */
+}
+.reviews{
+    padding-left: 20px;
+    padding-right: 20px;
+    color: white;
+}
+.review_title{
+    color: white;
+}
+.movie_button:hover{
+    color: #000000;
+    background-color: #ffffff;
+    transition: all 0.2s;
+}
