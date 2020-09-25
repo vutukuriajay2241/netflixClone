@@ -21,6 +21,7 @@
     padding: 15px;
     position: absolute;
     right: 0;
+    cursor: pointer;
 }.movie_button{
     cursor: pointer;
     color: #ffffff;
@@ -49,4 +50,9 @@
     color: #000000;
     background-color: #ffffff;
     transition: all 0.2s;
+}
+@media  only screen and (min-width:641px)  {
+    .poster_movie{
+        height: 400px;
+    }
 }

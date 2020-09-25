@@ -11,7 +11,8 @@
 .searchContainer{
     display: flex;
     align-items: center;
-    padding-right: 10px;
+    margin-right: 10px;
+    position: relative;
     
 }
 .navOptionsContainer{
@@ -28,6 +29,12 @@
     border-color: white;
     border-width: 1px;
     color: white;
+}
+.loader{
+    position: absolute;
+    right: 0;
+    top: 3px;
+    padding-right: 5px;
 }
 .search{
     width: 22px;

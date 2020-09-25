@@ -2,12 +2,15 @@ import React, { useState, useEffect } from "react";
 import logo from "./assets/logo.png";
 import userAvatar from "./assets/user_avatar.png";
 import { instance, local } from "./axios";
+import Loader from 'react-loader-spinner'
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 
 import search from "./assets/search.png";
 import "./Navbar.css";
 function Navbar({ fetchURL,handleChange }) {
   const [show, handleShow] = useState(false);
   const [searchText, updateText] = useState("");
+  const [loader, setLoader] = useState(false)
   const [showSearchBox, setShowSearchBox] = useState(false)
   const [movieDetails, setMovieDetails] = useState("");
   const [recommendedMovies, setRecommendedMovieDetails] = useState();
@@ -26,6 +29,14 @@ function Navbar({ fetchURL,handleChange }) {
   const updateTextValue = (event) => {
     updateText(event.target.value);
   };
+  const handleKeypress = e => {
+    //it triggers by pressing the enter key
+    console.log(e)
+  if (e.key === 'Enter') {
+    handleClick(searchText);
+  }
+};
+
   const handleClick = (searchText) => {
     async function get_movie_posters(arr) {
       var arr_poster_list = [];
@@ -214,7 +225,7 @@ function Navbar({ fetchURL,handleChange }) {
         console.log(details);
         local.post("/recommend", details).then(function (response) {
           console.log(response);
-          handleChange(response.data)
+          setLoader(false,handleChange(response.data))
         });
       });
     }
@@ -253,7 +264,7 @@ function Navbar({ fetchURL,handleChange }) {
 
     }
     if (searchText){
-      return fetchData();
+      return setLoader(true,fetchData());
     }
     setShowSearchBox(!showSearchBox)
   };
@@ -265,6 +276,7 @@ function Navbar({ fetchURL,handleChange }) {
         placeholder="Movie Title"
         className="searchBox"
         value={searchText}
+        onKeyPress={handleKeypress}
         onChange={(event) => {
           updateText(event.target.value);
         }}
@@ -274,13 +286,23 @@ function Navbar({ fetchURL,handleChange }) {
         onClick={() => handleClick(searchText)}
         src={search}
         alt="search"
-      ></img></div>}
+      ></img>
+        {loader && <div className="loader">
+      <Loader
+         type="TailSpin"
+         color="#ffffff"
+         height={22}
+         width={22}
+        //  timeout={3000} //3 secs
+ 
+        /></div>}</div>}
       {!showSearchBox &&<img
         className="searchOnly"
         onClick={() => handleClick(searchText)}
         src={search}
         alt="search"
       ></img>}
+      
       <img className="user_avatar" src={userAvatar} alt="avatar"></img></div>
     </div>
   );
