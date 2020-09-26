@@ -4,6 +4,8 @@ import userAvatar from "./assets/user_avatar.png";
 import { instance, local } from "./axios";
 import Loader from 'react-loader-spinner'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 
 import search from "./assets/search.png";
 import "./Navbar.css";
@@ -233,9 +235,14 @@ function Navbar({ fetchURL,handleChange }) {
       const recs = await local.get(`/similarity?name=${movie_title}`);
       // setRecommendedMovieDetails(recs);
       if (
-        recs ==
+        recs.data ==
         "Sorry! The movie you requested is not in our database. Please check the spelling or try with some other movies"
       ) {
+                NotificationManager.error('Sorry! The movie you requested is not in our database!', '', 5000, () => {
+                  setLoader(false)
+                })
+                setLoader(false)
+        // alert("Sorry! The movie you requested is not in our database.")
       } else {
         console.log(recs);
         var movie_arr = recs.data.split("---");
@@ -304,6 +311,7 @@ function Navbar({ fetchURL,handleChange }) {
       ></img>}
       
       <img className="user_avatar" src={userAvatar} alt="avatar"></img></div>
+      <NotificationContainer/>
     </div>
   );
 }
